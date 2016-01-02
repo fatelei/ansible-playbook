@@ -1,0 +1,16 @@
+---
+# Install requirement software.
+
+# Upgrade source cache.
+- name: Update source cache.
+  apt: update_cache=yes
+  tags:
+    - apt
+
+# Install necessary package.
+- name: Install pip and git via apt-get.
+  apt: name={{ item }} state=present
+  with_items:
+    - python-pip
+    - git
+  notify: install supervisor

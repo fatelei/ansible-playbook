@@ -1,0 +1,12 @@
+---
+# Supervisor install and config.
+
+- name: Copy supervisor config
+  become: true
+  become_user: "{{ username }}"
+  template:
+    src: supervisord.conf.j2
+    dest: data/etc/supervisor/supervisord.conf
+  tags:
+    - supervisor
+  notify: link supervisord config

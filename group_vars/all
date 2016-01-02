@@ -1,0 +1,5 @@
+---
+# Define user and group.
+username: conoha
+groupname: conoha
+homedir: "/home/conoha"

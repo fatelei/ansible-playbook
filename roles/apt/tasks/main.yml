@@ -1,0 +1,18 @@
+---
+# Install package via apt.
+
+# Install package.
+- name: Install package.
+  apt: name={{ package }} state=present
+  with_items:
+    - "{{ installed_packages }}"
+  tags:
+    - install
+
+# Remove specific package.
+- name: Remove package via apt-get.
+  apt: name={{ package }} state=absent
+  with_items:
+    - "{{ removed_packages }}"
+  tags:
+    - purge

@@ -1,0 +1,40 @@
+---
+# User & group management.
+
+# Create a group.
+- name: Create group.
+  group: name={{ groupname }}
+  tags:
+    - create_group
+
+# Get a group sudo right.
+- name: Give group sudo right.
+  template:
+    src: sudoers.d.j2
+    dest: /etc/sudoers.d/{{ groupname }}
+    mode: 0440
+    owner: root
+    group: root
+  tags:
+    - add_sudo
+
+# Create a user to deploy apps.
+- name: Create a user to deply apps.
+  user: name={{ username }} group={{ groupname }} shell=/bin/bash state=present
+  tags:
+    - create_user
+  when: not_delete_user
+
+# Remove a user.
+- name: Remove a user.
+  user: name={{ username }} state=absent remove=yes
+  tags:
+    - delete_user
+  when: not not_delete_user
+
+# Delete a group.
+- name: Delete group.
+  group: name={{ groupname }} state=absent
+  tags:
+    - delete_group
+  when: not not_delete_group

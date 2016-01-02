@@ -1,0 +1,30 @@
+[supervisord]
+logfile = {{ homedir }}/{{ logfile }}
+logfile_maxbytes = 50MB
+logfile_backups=10
+loglevel = info
+pidfile = {{ homedir }}/{{ pidfile }}
+nodaemon = false
+minfds = 1024
+minprocs = 200
+umask = 022
+user = {{ username }}
+identifier = supervisor
+directory = {{ homedir }}/{{ directory }}
+nocleanup = true
+childlogdir = {{ homedir }}/{{ childlogdir }}
+strip_ansi = false
+
+[unix_http_server]
+file = /tmp/supervisor.sock
+chmod = 0777
+
+[supervisorctl]
+serverurl = unix:///tmp/supervisor.sock
+prompt = supervisor
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[include]
+files = {{ homedir }}/{{ programpath }}/*.conf

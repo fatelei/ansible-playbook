@@ -1,0 +1,7 @@
+---
+# Directory paths.
+directories:
+  - data/apps
+  - data/etc/supervisor/conf.d
+  - data/log/supervisor
+  - data/run

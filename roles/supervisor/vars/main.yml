@@ -1,0 +1,7 @@
+---
+# Supervisor config variables, you can change it.
+directory: "data/etc/supervisor"
+childlogdir: "data/log/supervisor"
+logfile: "data/log/supervisor/supervisord.log"
+pidfile: "data/run/supervisor.pid"
+programpath: "data/etc/supervisor/conf.d"

@@ -1,0 +1,4 @@
+---
+# Supervisor handlers
+- name: link supervisord config
+  file: src={{ homedir }}/data/etc/supervisor/supervisord.conf path=/etc/supervisord.conf state=link force=yes

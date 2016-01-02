@@ -1,0 +1,12 @@
+---
+# All remote server config
+
+# Apply common action for all server.
+- hosts: all
+  remote_user: root
+  roles:
+    - common
+    - { role: user }
+    - { role: apt }
+    - file
+    - supervisor

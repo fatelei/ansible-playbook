@@ -1,0 +1,11 @@
+---
+# Handler for user role.
+
+- name: make dir
+  become: true
+  become_user: "{{ username }}"
+  file: path={{ item }} state=directory mode=0755 owner={{ username }} group={{ groupname }}
+  with_items:
+    - "{{ directories }}"
+  tags:
+    - create_app_dir
