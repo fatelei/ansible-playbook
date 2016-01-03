@@ -1,6 +1,6 @@
 # ansible-playbook
 My ansible playbook for automated operation and maintenance, currently only support
-ubuntu and debian.
+ubuntu and debian. I use default hosts file location "/etc/ansible/hosts".
 
 ## Command.
 
