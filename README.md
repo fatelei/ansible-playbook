@@ -67,14 +67,18 @@ ansible-playbook site.yml --tags "add_sudo" [--extra-vars "groupname=foo"]
 
 Create app directories.
 
-Avaliable tags:
+#### Usage
 
-+ create_app_dir
+```
+ansible-playbook site.yml --tags "create_app_dir"
+```
 
 ### Supervisor
 
-Create supervisor config.
+Initialize supervisor config.
 
-Avaliable tags:
+#### Usage
 
-+ supervisor
+```
+ansible-playbook site.yml --tags "supervisor"
+```
