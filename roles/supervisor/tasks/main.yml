@@ -10,3 +10,13 @@
   tags:
     - supervisor
   notify: link supervisord config
+
+- name: Copy ssserver config
+  become: true
+  become_user: "{{ username }}"
+  template:
+    src: sserver.conf.j2
+    dest: data/etc/supervisor/conf.d/sserver.conf
+  tags:
+    - supervisor
+  notify: link supervisord config

@@ -1,0 +1,4 @@
+---
+# Shadowsocks config.
+server_ip: "you server ip"
+password: "you password"

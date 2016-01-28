@@ -3,7 +3,7 @@
 
 # Install package.
 - name: Install package.
-  apt: name={{ package }} state=present
+  apt: name={{ item }} state=present
   with_items:
     - "{{ installed_packages }}"
   tags:
@@ -11,7 +11,7 @@
 
 # Remove specific package.
 - name: Remove package via apt-get.
-  apt: name={{ package }} state=absent
+  apt: name={{ item }} state=absent
   with_items:
     - "{{ removed_packages }}"
   tags:

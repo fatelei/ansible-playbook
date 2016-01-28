@@ -1,0 +1,9 @@
+---
+# Create shadowsocks config.
+
+- name: Copy shadowsocks config
+  template:
+    src: shadowsocks.json.j2
+    dest: /etc/shadowsocks.json
+  tags:
+    - shadowsocks
